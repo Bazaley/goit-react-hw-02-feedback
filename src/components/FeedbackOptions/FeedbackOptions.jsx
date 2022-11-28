@@ -1,18 +1,14 @@
 import { ButtonBox, Button } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ addGrade }) => {
+export const FeedbackOptions = ({ addGrade, options }) => {
   return (
     <>
       <ButtonBox>
-        <Button type="button" name="good" onClick={e => addGrade(e)}>
-          Good
-        </Button>
-        <Button type="button" name="neutral" onClick={e => addGrade(e)}>
-          Neutral
-        </Button>
-        <Button type="button" name="bad" onClick={e => addGrade(e)}>
-          Bad
-        </Button>
+        {options.map(option => (
+          <Button key={option} type="button" name={option} onClick={addGrade}>
+            {option}
+          </Button>
+        ))}
       </ButtonBox>
     </>
   );
